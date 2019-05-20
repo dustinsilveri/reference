@@ -25,4 +25,10 @@ tidbits and one liners
 
 # Look for 'jmp esp' in essfunc.dll module
 !mona find -s "\xff\xe4" -m essfunc.dll	  		
+
+# Unicode venetian aligment stub
+!mona unicodealign   # if EIP points to the start address already
+
+# Set Mona Working Directory
+!mona config -set workingfolder c:\monalogs
 ```
