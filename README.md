@@ -78,7 +78,7 @@ JMP 00411363           # Jump to the command that was to be executed next
 FFE4                        JMP ESP
 ```
 
-# A Much Bigger Jump (400+ bytes), Phrack #62 Article 7 Originally written by Aaron Adams 
+# A Much Bigger Jump (400+ bytes), Phrack #62 Article 7 by Aaron Adams 
 ```
 D9EE           FLDZ
 D97424 F4      FSTENV (28-BYTE) PTR SS:[ESP-C]
