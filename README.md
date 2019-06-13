@@ -70,3 +70,10 @@ JMP 00411363           # Jump to the command that was to be executed next
 0040A783   PUSH -1                   # Restore other instructions if needed 
 0040A785   JMP 00404C05              # Jump to where we left off from. 
 ```
+
+# Negative Jump 176 bytes
+```
+83EC 58                     SUB ESP,58 
+83EC 58                     SUB ESP,58 
+FFE4                        JMP ESP
+```
