@@ -71,7 +71,7 @@ JMP 00411363           # Jump to the command that was to be executed next
 0040A785   JMP 00404C05              # Jump to where we left off from. 
 ```
 
-# Negative Jump 176 bytes
+# Negative Jump 176 bytes (minus the opcodes) --> Perfect for an encoded egghunter
 ```
 83EC 58                     SUB ESP,58 
 83EC 58                     SUB ESP,58 
