@@ -95,4 +95,9 @@ FFE1           JMP ECX
 AND EAX,554E4D4A      
 AND EAX,2A313235 
 ```
+
+# Copy ESP Address to EAX to Start Working
+```
+54               PUSH ESP
+58               POP EAX
 ```
