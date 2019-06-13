@@ -89,3 +89,10 @@ FECD           DEC CH
 FECD           DEC CH
 FFE1           JMP ECX
 ```
+
+# Zero out EAX
+```
+AND EAX,554E4D4A      
+AND EAX,2A313235 
+```
+```
