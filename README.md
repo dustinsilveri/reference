@@ -78,6 +78,12 @@ JMP 00411363           # Jump to the command that was to be executed next
 FFE4                        JMP ESP
 ```
 
+# Short Jumps
+```
+77 08   JA SHORT 00B8FFE6
+76 06   JBE SHORT 00B8FFE6
+```
+
 # A Much Bigger Jump (400+ bytes), Phrack #62 Article 7 by Aaron Adams 
 ```
 D9EE           FLDZ
