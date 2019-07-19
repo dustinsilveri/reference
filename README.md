@@ -166,3 +166,9 @@ shellcode += "\x81\xe4\xf0\xff\xff\xff"    # align the stack: AND esp,0xFFFFFFF0
 ```
 python -c 'import pty; pty.spawn("/bin/sh")'
 ```
+
+# Quick Debugging Shortcuts
+```
+Ctrl+F2 --> Ctrl+G --> Enter   --> F2             --> F9 
+restart --> go to last address --> set breakpoint --> run
+```
