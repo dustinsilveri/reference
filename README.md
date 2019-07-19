@@ -146,6 +146,9 @@ FFE1           JMP ECX
 AND EAX,554E4D4A      
 AND EAX,2A313235 
 ```
+```
+XOR EAX,EAX
+```
 
 # Copy ESP Address to EAX to Start Working
 ```
