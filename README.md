@@ -206,8 +206,16 @@ Ctrl+F2 --> Ctrl+G --> Enter   --> F2             --> F9
 restart --> go to last address --> set breakpoint --> run
 ```
 
-# Random Trick that comes in handy
+# Random tricks that comes in handy
 ```
 MOV EBX, 0x40343444   ; Set EBX to a mostly correct address
 SHR EBX, 0x8          ; Shift EBX right by a byte to correct the address
+```
+```
+MOV AL, 6             ; Set EAX to 6
+PUSH EAX
+```
+```
+sub ax, 406           ; subtract 406 bytes from current ax value
+add ax, 406           ; add 406 bytes to current ax value
 ```
